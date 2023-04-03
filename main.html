@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!---->
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1"
+    />
+    <!---->
+    <title>GREECE CHRISTMAS</title>
+    <!--<link rel="stylesheet" href="style.css" />-->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "poppins", sans-serif;
+      }
+
+      body {
+        /*background: linear-gradient(to bottom, #0554bb 60%, lightgrey 40%);*/
+        min-height: 100vh;
+        color: rgb(0, 0, 0);
+        padding: 50px 0;
+      }
+
+      .container {
+        max-width: 1000px;
+        padding: 20px;
+        margin: auto;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        font-weight: bold;
+        text-align: center;
+        color: rgb(0, 0, 0);
+      }
+
+      /*---------------------------------------------------*/
+      /*TYPEWRITER*/
+      .typewriter h1 {
+        overflow: hidden;
+        border-right: 0em solid #1d75c7;
+        white-space: break-spaces;
+        margin: 0 auto;
+        letter-spacing: 0.15em;
+        animation: typing 3.5s steps(250, end), blink-caret 2s step-end infinite;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #1d75c7;
+        }
+      }
+
+      /*---------------------------------------------------*/
+      .image-hotspot {
+        max-width: 800px;
+        margin: 50px auto 0 auto;
+        position: relative;
+      }
+
+      .image-hotspot img {
+        max-width: 100%;
+        box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0);
+      }
+
+      .icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        /* border: 3px solid rgb(255, 255, 255);
+  background: #1d75c7;*/
+        cursor: pointer;
+        position: absolute;
+      }
+
+      .icon:after {
+        position: absolute;
+        top: -65%; /*-65 για το army.gr*/
+        left: 50%;
+        transform: translate(-50%, 50%) scale(1, 1);
+        pointer-events: none;
+        content: "";
+        display: block;
+        width: 26.4px;
+        height: 26.4px;
+        border-radius: 100%;
+        border: 3px solid #f1d235;
+        transition: border-color 1s linear;
+        animation: icon-pulse 3s linear infinite;
+      }
+
+      @keyframes icon-pulse {
+        0% {
+          transform: translate(-50%, 50%) scale(1, 1);
+          opacity: 0;
+        }
+
+        20% {
+          transform: translate(-50%, 50%) scale(1.5, 1.5);
+          opacity: 0.9;
+        }
+
+        50% {
+          transform: translate(-50%, 50%) scale(2, 2);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translate(-50%, 50%) scale(2, 2);
+          opacity: 0;
+        }
+      }
+
+      .item {
+        position: absolute;
+        transform: translate(-50%, 50%);
+      }
+
+      .tooltip {
+        position: absolute;
+        padding: 15px;
+        width: 7em;
+        height: 5em;
+        background-color: rgb(69, 153, 0);
+        color: #000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        line-height: 1.5em;
+        z-index: -1;
+        text-align: center;
+        pointer-events: none;
+        border-radius: 4px;
+        display: block;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.5s linear;
+      }
+
+      .item:hover .tooltip {
+        opacity: 1;
+      }
+
+      .tooltip h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .top .tooltip {
+        left: calc(50% - 6.5em);
+        bottom: 40px;
+      }
+
+      .top.tooltip:after {
+        color: rgb(255, 255, 255);
+        position: absolute;
+        content: "";
+        bottom: -13px;
+        border-top: 13px solid;
+        border-left: 13px solid transparent;
+        border-right: 13px solid transparent;
+        left: calc(50% - 13px);
+      }
+
+      .bottom .tooltip {
+        left: calc(50% - 6.5em);
+        top: 40px;
+      }
+
+      .bottom.tooltip:after {
+        color: #fff;
+        position: absolute;
+        content: "";
+        top: -13px;
+        border-bottom: 13px solid;
+        border-left: 13px solid transparent;
+        border-right: 13px solid transparent;
+        left: calc(50% - 13px);
+      }
+
+      .left .tooltip {
+        left: calc(50% - 6.5em);
+        right: 40px;
+      }
+
+      .left.tooltip:after {
+        color: #fff;
+        position: absolute;
+        content: "";
+        right: -13px;
+        border-left: 13px solid;
+        border-top: 13px solid transparent;
+        border-bottom: 13px solid transparent;
+        left: calc(50% - 13px);
+      }
+
+      .right .tooltip {
+        left: calc(50% - 6.5em);
+        right: 40px;
+      }
+
+      .right.tooltip:after {
+        color: #fff;
+        position: absolute;
+        content: "";
+        left: -13px;
+        border-right: 13px solid;
+        border-top: 13px solid transparent;
+        border-bottom: 13px solid transparent;
+        left: calc(50% - 13px);
+      }
+
+      @media only screen and(max-width:1200px) {
+        h1 {
+          font-size: 6em;
+        }
+        .tooltip {
+          display: none;
+        }
+      }
+      /*
+@media only screen and (max-width: 600px) {
+  .right.tooltip:after{
+   opacity: 0;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .right.tooltip:after{
+    opacity: 1;
+  }
+}*/
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!--<div class="typewriter">-->
+      <div>
+        <h1>Τα κάλαντα των Χριστουγέννων σε όλη την Ελλάδα!</h1>
+      </div>
+      <div class="image-hotspot">
+        <img
+          src="http://army.gr/sites/default/files/greecemap.png"
+          alt="GREECE"
+        />
+
+        <!--ΣΜΣ ΑΣΔΥΣ ΚΑΛΑΝΤΑ-->
+
+        <div class="item right" style="top: 53%; left: 40.5%">
+          <a href="https://www.youtube.com/watch?v=6hZ8eMwheGk" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΣΜΣ <br /> ΑΣΔΥΣ</p>
+          </div> -->
+        </div>
+
+        <!--ΣΜΣ XII M/K MΠ ΚΑΛΑΝΤΑ-->
+
+        <div class="item left" style="top: 14%; left: 62%">
+          <a href="https://www.youtube.com/watch?v=Fyf136PdZ1s" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΣΜΣ XII <br />M/K MΠ</p>
+          </div> -->
+        </div>
+
+        <!--ΣΜΣ ΧVI M/K MΠ ΚΑΛΑΝΤΑ-->
+
+        <div class="item right" style="top: 7%; left: 66%">
+          <a href="https://www.youtube.com/watch?v=ZYjE6u_Ug8Q" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΣΜΣ ΧVI <br />M/K MΠ</p>
+          </div> -->
+        </div>
+
+        <!--ΣΜΣ Γ' ΣΣ ΚΑΛΑΝΤΑ-->
+
+        <div class="item right" style="top: 17%; left: 32%">
+          <a href="https://www.youtube.com/watch?v=TdeQafIjiKM" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΣΜΣ Γ' ΣΣ</p>
+          </div> -->
+        </div>
+
+        <!--ΣΜΣ 8 Μ/Π ΤΑΞ ΚΑΛΑΝΤΑ-->
+
+        <div class="item left" style="top: 31%; left: 10.7%">
+          <a href="https://www.youtube.com/watch?v=kZ-jbhNKgrk" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΣΜΣ 8 <br />Μ/Π ΤΑΞ</p>
+          </div> -->
+        </div>
+
+        <!--ΣΜΣ 9 Μ/Π ΤΑΞ ΚΑΛΑΝΤΑ-->
+
+        <div class="item left" style="top: 21%; left: 23%">
+          <a href="https://www.youtube.com/watch?v=TuWqav9jYN4" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>
+              ΣΜΣ 9 <br />
+              Μ/Π ΤΑΞ
+            </p>
+          </div> -->
+        </div>
+
+        <!--ΣΜΣ ΧΧΙ ΤΘΤ ΚΑΛΑΝΤΑ-->
+
+        <div class="item right" style="top: 11%; left: 56%">
+          <a href="https://www.youtube.com/watch?v=73D7Q9oz4FI" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΣΜΣ ΧΧΙ<br /> ΤΘΤ</p>
+          </div> -->
+        </div>
+
+        <!--ΣΜΣ 5 Α/Μ ΤΑΞ ΚΑΛΑΝΤΑ-->
+
+        <div class="item left" style="top: 87%; left: 42%">
+          <a href="https://www.youtube.com/watch?v=pJU9L_3fKD8" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>
+              ΣΜΣ 5 <br />
+              Α/Μ ΤΑΞ
+            </p>
+          </div> -->
+        </div>
+
+        <!--ΜΣΕΘ 80 ΑΔΤΕ ΚΑΛΑΝΤΑ-->
+
+        <div class="item right" style="top: 69%; left: 72%">
+          <a href="https://www.youtube.com/watch?v=TDoY8t7csSI" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΜΣΕΘ 80 <br /> ΑΔΤΕ</p>
+          </div> -->
+        </div>
+
+        <!--ΜΣΕΘ 98 ΑΔΤΕ ΚΑΛΑΝΤΑ-->
+
+        <div class="item left" style="top: 37%; left: 64%">
+          <a href="https://www.youtube.com/watch?v=8SshpoMLy9g" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΜΣΕΘ 98 <br /> ΑΔΤΕ</p>
+          </div> -->
+        </div>
+
+        <!--ΣΜΣ 1 ΣΤΡΑΤΙΑ ΚΑΛΑΝΤΑ-->
+
+        <div class="item left" style="top: 30%; left: 30%">
+          <a href="https://www.youtube.com/watch?v=Syo-h81Xxck" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΣΜΣ 1 <br /> ΣΤΡΑΤΙΑ</p>
+          </div> -->
+        </div>
+
+        <!--ΣΜΣ Δ' ΣΣ ΚΑΛΑΝΤΑ-->
+
+        <div class="item right" style="top: 11%; left: 51%">
+          <a href="https://www.youtube.com/watch?v=a9iG8Plv11U" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΣΜΣ Δ' ΣΣ</p>
+          </div> -->
+        </div>
+
+        <!--ΣΜΣ ΔΙΚΕ ΚΑΛΑΝΤΑ-->
+
+        <div class="item left" style="top: 60%; left: 27%">
+          <a href="https://www.youtube.com/watch?v=YQNXPsQAbSg" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΣΜΣ ΔΙΚΕ</p>
+          </div> -->
+        </div>
+
+        <!--ΜΣΕΘ 95 ΑΔΤΕ ΚΑΛΑΝΤΑ-->
+
+        <div class="item left" style="top: 76%; left: 81%">
+          <a href="https://www.youtube.com/watch?v=ml8GAHC78pM" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΜΣΕΘ 95 <br /> ΑΔΤΕ</p>
+          </div> -->
+        </div>
+
+        <!--ΜΣΕΘ 79 ΑΔΤΕ ΚΑΛΑΝΤΑ-->
+
+        <div class="item left" style="top: 56%; left: 69%">
+          <a href="https://www.youtube.com/watch?v=GVmocLcFrNY" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>
+              ΜΣΕΘ 79 <br />
+              ΑΔΤΕ
+            </p>
+          </div> -->
+        </div>
+
+        <!--ΣΜΣ 88 ΣΔΙ ΚΑΛΑΝΤΑ-->
+
+        <div class="item left" style="top: 26%; left: 54%">
+          <a href="https://www.youtube.com/watch?v=NwMKXS9etrg" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΣΜΣ 88 <br /> ΣΔΙ</p>
+          </div> -->
+        </div>
+
+        <!--ΣΜΣ 96 ΑΔΤΕ ΚΑΛΑΝΤΑ-->
+
+        <div class="item left" style="top: 47%; left: 62%">
+          <a href="https://www.youtube.com/watch?v=A2iyz6o6S_o" target="_blank">
+            <div class="icon">
+              <img
+                src="http://army.gr/sites/default/files/christmas-bell.png"
+              />
+            </div>
+          </a>
+          <!-- <div class="tooltip">
+            <p>ΣΜΣ 96 <br /> ΑΔΤΕ</p>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
